@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="window_background_color">#fff2f4ff</color>
+    <color name="window_title_background_color">#ff0e4e2c</color>
+    <color name="window_title_text_color">#fff2f4ff</color>
+    <color name="group_title_bckg_color">#ffadc1aa</color>
+    <color name="group_title_text_color">#ffffffff</color>
+    <color name="penalties_result_color">#ff0e4e2c</color>
+    <color name="text_color">#ff0e4e2c</color>
+    <color name="edit_text">#ff666666</color>
+</resources>

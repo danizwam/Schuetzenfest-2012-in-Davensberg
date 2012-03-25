@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_beenden"
+          android:icon="@drawable/ic_menu_beenden"
+          android:title="@string/beenden"/>
+    <item android:id="@+id/menu_veranstaltungen"
+          android:icon="@drawable/ic_menu_veranstaltung"
+          android:title="@string/veranstaltungenTitel"/>
+    <!-- <item android:id="@+id/help"
+          android:icon="@drawable/ic_help"
+          android:title="@string/help" /> -->
+</menu>

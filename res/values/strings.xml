@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, MainActivity!</string>
+    <string name="app_name">Sch\u00FCtzenfest 2012 in Davensberg</string>
+    <string name="zweite_seite_titel">Veranstaltungen</string>
+    <string name="veranstaltungenTitel">Veranstaltungen</string>
+    <string name="googlemapstxt">Google Maps</string>
+    <string name="toasttext">Gugglaskdjflakjf alsfkdj asfd</string>
+    <string name="mittwochMapsLoadingText">Einen Moment bitte… Google Maps wird gestartet!</string>
+    <string name="burgturmGeo">geo:0,0?q=51.82073,7.59207 (Burgturm)&amp;z=8</string>
+    <string name="haverkampGeo">geo:0,0?q=51.820099,7.596008 (Gasthaus \"Zur Davert\" Haverkamp)&amp;z=8</string>
+    <string name="vogelstangeGeo">geo:0,0?q=51.820242,7.599717 (Vogelstange am Telgenpatt)&amp;z=8</string>
+    <string name="alteKoenigGeo">geo:0,0?q=51.820242,7.599717 (Alter Koenig)&amp;z=8</string>
+    <string name="neuerKoenigGeo">geo:0,0?q=51.820242,7.599717 (Neuer Koenig)&amp;z=8</string>
+
+    <string name="MenuItem1">Beenden</string>
+
+    <style name="root_layout">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+
+    <style name="window_title_bar">
+        <item name="android:textSize">16.0dip</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">5.0dip</item>
+        <item name="android:paddingBottom">5.0dip</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:shadowColor">#ff000000</item>
+        <item name="android:shadowDx">1.0</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">1.0</item>
+    </style>
+
+    <string name="widget_text">Sch\u00FCtzenfest 2012 Countdown (2x1)</string>
+    <string name="widget_text_1">………loading………</string>
+    <string name="widget_text_2"></string>
+    <string name="beenden">Beenden</string>
+    <string name="mittwoch_titel">Mittwoch - 06.06.2012</string>
+    <string name="mittwoch_content_text_1">ab 20:00 Uhr: Rockfestival mit DJ Daniel        <!--
+        <li>
+            <ol>ab 20:00 Uhr: Rockfestival mit DJ Daniel 
+            </ol>
+        </li>
+        -->
+
+    </string>
+
+</resources>

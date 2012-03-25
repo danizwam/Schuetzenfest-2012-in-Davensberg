@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>   
+    <style name="default_text">
+        <item name="android:textSize">14.0dip</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="default_text.with_paddings" >
+        <item name="android:textSize">14.0dip</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>        
+        <item name="android:paddingLeft">6.0dip</item>
+        <item name="android:paddingTop">10.0dip</item>
+        <item name="android:paddingRight">6.0dip</item>
+        <item name="android:paddingBottom">10.0dip</item>
+    </style>
+    <style name="default_text.with_small_paddings">
+        <item name="android:textSize">14.0dip</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>        
+        <item name="android:paddingLeft">6.0dip</item>
+        <item name="android:paddingTop">3.0dip</item>
+        <item name="android:paddingRight">6.0dip</item>
+        <item name="android:paddingBottom">3.0dip</item>
+    </style>
+    <style name="default_text.with_paddings.centered" >
+        <item name="android:textSize">14.0dip</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>        
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="default_text.location_address" >
+        <item name="android:textSize">14.0dip</item>
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>        
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:paddingLeft">22.0dip</item>
+        <item name="android:paddingTop">5.0dip</item>
+        <item name="android:paddingBottom">5.0dip</item>
+        <item name="android:singleLine">true</item>
+    </style>
+</resources>
+    
