@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <ScrollView style="@style/root_layout" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/default_text.with_paddings"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="@string/donnerstag_0"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/default_text.with_paddings"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:text="@string/donnerstag_1"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/default_text.with_paddings"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:text="@string/donnerstag_2"
+                android:textSize="14dp" />
+
+            <TextView
+                style="@style/default_text.with_paddings"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="@string/donnerstag_3"
+                android:gravity="center"
+                android:textSize="14dp" />
+
+            <TextView
+                style="@style/default_text.with_paddings"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="@string/donnerstag_4"
+                android:gravity="center"
+                android:textSize="14dp" />
+
+            <TextView
+                style="@style/default_text.with_paddings"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="@string/donnerstag_5"
+                android:gravity="center"
+                android:textSize="14dp" />
+
+            <TextView
+                style="@style/default_text.with_paddings"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="@string/donnerstag_6"
+                android:gravity="center"
+                android:textSize="14dp" />
+
+            <TextView
+                style="@style/default_text.with_paddings"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:text="@string/donnerstag_7"
+                android:textSize="18dp" android:textStyle="bold"/>
+
+            <TextView
+                style="@style/default_text.with_paddings"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="@string/donnerstag_8"
+                android:gravity="center"
+                android:textSize="14dp" />
+
+            <TextView
+                style="@style/default_text.with_paddings"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/donnerstag_9"
+                android:gravity="center"
+                android:textSize="14dp" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageButton
+                    android:id="@+id/mittwoch_button_maps"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:onClick="mapButtonClicked"
+                    android:src="@drawable/ic_launcher_maps" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

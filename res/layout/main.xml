@@ -11,153 +11,128 @@
         android:layout_height="200px"
         android:contentDescription="@string/burgturmGeo"
         android:src="@drawable/logo_android_app" />
+
+    <TableLayout
+        android:id="@+id/trennstrichTableLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="5dp"
+        android:background="@drawable/background" >
+
+        <TableRow
+            android:id="@+id/trennstrichTableRow1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/background" >
 
+        </TableRow>
+    </TableLayout>
+
     <ScrollView
-        android:id="@+id/ScrollView01"
+        android:id="@+id/MainScrollView"
         style="@style/root_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:background="@android:color/white" >
-
-        <TableLayout
-            android:id="@+id/tableLayout1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
-
-            <TableRow
-                android:id="@+id/TableRow01"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent" 
-                android:paddingTop="20.0dip"
-                android:paddingLeft="20.0dip"
-                android:paddingRight="20.0dip">
-
-                <LinearLayout
-                    android:id="@+id/LinearLayout01"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:orientation="vertical" 
-                    android:paddingLeft="20.0dip"
-                    android:paddingRight="20.0dip">
-
-                    <ImageButton
-                        android:id="@+id/ImageButton03"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/background" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Button 1" />
-
-                    <ImageButton
-                        android:id="@+id/ImageButton01"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/background" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Button 2" />
-
-                    <ImageButton
-                        android:id="@+id/ImageButton02"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/background" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Button 3" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayout2"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:orientation="vertical" 
-                    android:paddingLeft="20.0dip"
-                    android:paddingRight="20.0dip">
-
-                    <ImageButton
-                        android:id="@+id/imageButton12"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/background" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Button 1" />
-
-                    <ImageButton
-                        android:id="@+id/imageButton22"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/background" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Button 2" />
-
-                    <ImageButton
-                        android:id="@+id/imageButton32"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/background" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Button 3" />
-                </LinearLayout>
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/tableRow2"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent" >
-            </TableRow>
-        </TableLayout>
-    </ScrollView>
-
-    <ScrollView
-        android:id="@+id/scrollView1"
-        style="@style/root_layout"
-        android:background="@android:color/white" >
-
-        <LinearLayout
-            android:id="@+id/linearLayout1"
-            style="@style/root_layout" >
-
-            <Button
-                android:id="@+id/button1"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:onClick="buttonClicked"
-                android:text="@string/googlemapstxt"/>
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:onClick="zweiteSeite"
-                android:text="Zweite Seite" />
 
-            <CheckBox
-                android:id="@+id/showNotifications"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="notifChange"
-                android:text="@string/veranstaltungenTitel" />
+        <LinearLayout
+            android:id="@+id/mainLinearLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/linearLayout4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/kalender" />
+
+                <Button
+                    android:id="@+id/imageButton32"
+                    android:layout_width="fill_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:onClick="veranstaltungskalenderClicked"
+                    android:text="Veranstaltungskalender" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/uebersichtskarteLinearLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/ImageView02"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/ic_launcher_maps" />
+
+                <Button
+                    android:id="@+id/ImageButton03"
+                    android:layout_width="fill_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Übersichtskarte"
+                    android:onClick="mapsClicked"
+                    android:src="@drawable/background" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LinearLayout01"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/ImageView01"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/sunny" />
+
+                <Button
+                    android:id="@+id/Button01"
+                    android:layout_width="fill_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:onClick="wetterClicked"
+                    android:text="Wettervorhersage" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                style="@style/root_layout"
+                android:layout_width="fill_parent" >
+
+                <CheckBox
+                    android:id="@+id/showNotifications"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="notifChange"
+                    android:text=" Benachrichtigung über Events"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
 
         </LinearLayout>
+
     </ScrollView>
 
 </LinearLayout>

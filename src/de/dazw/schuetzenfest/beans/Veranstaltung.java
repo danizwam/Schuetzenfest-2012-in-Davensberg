@@ -44,5 +44,4 @@ public class Veranstaltung {
 		return id;
 	}
 	
-	
 }

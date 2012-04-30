@@ -21,7 +21,7 @@ public class HTTPDownloader {
 	}
 
 	
-	public File download(String fileURL){
+	public synchronized File download(String fileURL){
 		try {
 			//set the download URL, a url that points to a file on the internet
 			//this is the file to be downloaded
@@ -43,7 +43,7 @@ public class HTTPDownloader {
 			File SDCardRoot = Environment.getExternalStorageDirectory();
 			//create a new file, specifying the path, and the filename
 			//which we want to save the file as.
-			File file = new File(SDCardRoot, "Varanstaltungen.txt");
+			File file = new File(SDCardRoot, "Schuetzenfest.tmp");
 
 			//this will be used to write the downloaded data into the file we created
 			FileOutputStream fileOutput = new FileOutputStream(file);
@@ -62,6 +62,13 @@ public class HTTPDownloader {
 
 			//now, read through the input buffer and write the contents to the file
 			while ( (bufferLength = inputStream.read(buffer)) > 0 ) {
+				
+				for(int i = 0; i < buffer.length; i++){
+					if(buffer[i] == -96 ){
+						buffer[i] = 32;
+					}
+				}
+				
 				//add the data in the buffer to the file in the file output stream (the file on the sd card
 				fileOutput.write(buffer, 0, bufferLength);
 				//add up the size so we know how much is downloaded

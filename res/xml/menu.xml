@@ -3,9 +3,9 @@
     <item android:id="@+id/menu_beenden"
           android:icon="@drawable/ic_menu_beenden"
           android:title="@string/beenden"/>
-    <item android:id="@+id/menu_veranstaltungen"
+<!--     <item android:id="@+id/menu_veranstaltungen"
           android:icon="@drawable/ic_menu_veranstaltung"
-          android:title="@string/veranstaltungenTitel"/>
+          android:title="@string/veranstaltungenTitel"/> -->
     <!-- <item android:id="@+id/help"
           android:icon="@drawable/ic_help"
           android:title="@string/help" /> -->

@@ -16,6 +16,7 @@ import java.util.TimerTask;
 import android.content.Context;
 import android.util.Log;
 import de.dazw.schuetzenfest.beans.Veranstaltung;
+import de.dazw.schuetzenfest.sonst.Constants;
 import de.dazw.schuetzenfest.tools.HTTPDownloader;
 import de.dazw.schuetzenfest.tools.NotificationFactory;
 
@@ -48,14 +49,14 @@ public class ShowVeranstaltungen {
 		return startet;
 	}
 
-	public void start() {
+	private void start() {
 		if (!startet) {
 			Timer timer = new Timer();
 			timer.scheduleAtFixedRate(new TimerTask() {
 
 				@Override
 				public void run() {
-					if(context.getSharedPreferences(MainActivity.PREFS_NAME, 0).getBoolean(MainActivity.NOTIFICATION_PREF, true)){
+					if(context.getSharedPreferences(Constants.PREFS_NAME, 0).getBoolean(Constants.NOTIFICATION_PREF, true)){
 					//if(MainActivity.notification){
 						showNextVeranstaltungen(2);
 					}
@@ -68,17 +69,33 @@ public class ShowVeranstaltungen {
 	}
 
 	public void forceUpdate(){
-		showNextVeranstaltungen(2);
+		showNextVeranstaltungen(1);
 	}
 	
 	private ShowVeranstaltungen(Context context) {
 		this.context = context;
-		verList = ladeVeranstaltungenAusInternet();
-		if (verList.size() == 0) {
-			createBackup();
-		}
+
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				synchronized (verList) {
+					verList = ladeVeranstaltungenAusInternet();
+					if (verList.size() == 0) {
+						createBackup();
+					}
+				}
+			}
+		}).start();
+		
 	}
 
+	private boolean fehler = false;
+	
+//	private void showToastText(String text){
+//		Toast.makeText(context, text, 2000).show();
+//	}
+	
 	public static ShowVeranstaltungen getInstance(Context context) {
 		if (instance == null) {
 			instance = new ShowVeranstaltungen(context);
@@ -86,25 +103,41 @@ public class ShowVeranstaltungen {
 		return instance;
 	}
 
-	public void showNextVeranstaltungen(int anzahl) {
-		long now = System.currentTimeMillis();
-		int zaehler = 0;
+	public void showNextVeranstaltungen(final int anzahl) {
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				long now = System.currentTimeMillis();
+				int zaehler = 0;
+				
+				while(verList.size() == 0){
+					// Warten bis Backup geladen wurde
+				}
+				synchronized (verList) {
+					for (Veranstaltung v : verList) {
+						// if ((now + vorlaufZeit) > v.getAnfang().getTimeInMillis() && now
+						// < v.getEnde().getTimeInMillis()) {
+						NotificationFactory.showNotification(context, R.drawable.ic_launcher, v);
+						zaehler++;
+						if (zaehler == anzahl) {
+							break;
+						}
+						// }
+						if (zaehler == anzahl) {
+							break;
+						}
+					}
+				}
+				
+			}
+		}).start();
 
-		for (Veranstaltung v : verList) {
-			// if ((now + vorlaufZeit) > v.getAnfang().getTimeInMillis() && now
-			// < v.getEnde().getTimeInMillis()) {
-			NotificationFactory.showNotification(context, R.drawable.ic_launcher, v);
-			zaehler++;
-			if (zaehler == anzahl) {
-				break;
-			}
-			// }
-			if (zaehler == anzahl) {
-				break;
-			}
-		}
 	}
 
+	
+
+	
 	private List<Veranstaltung> ladeVeranstaltungenAusInternet() {
 
 		List<Veranstaltung> verList = new ArrayList<Veranstaltung>();
@@ -154,14 +187,18 @@ public class ShowVeranstaltungen {
 		} catch (IOException e) {
 			Log.e("LadeVeranstaltung", "Die Datei kann nicht gelesen werden!");
 		} catch (NullPointerException e) {
-
+			Log.e("LadeVeranstaltung", "NPE: " + e.getMessage());
 		}
 
+		//showToastText("Veranstaltungedaten erfolgreich geladen!");
+		
 		return verList;
 
 	}
 
 	private void createBackup() {
+		//showToastText("Veranstaltungen konnten nicht geladen werden. Es werden die zum Release der App bekannten Zeiten benutzt!");
+		
 		Calendar rockfestival = GregorianCalendar.getInstance();
 		rockfestival.set(2012, 5, 6, 21, 00);
 

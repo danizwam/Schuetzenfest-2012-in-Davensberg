@@ -2,17 +2,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="de.dazw.schuetzenfest"
     android:versionCode="4"
-    android:versionName="1.0">
+    android:versionName="1.0" >
 
     <uses-sdk android:minSdkVersion="7" />
-    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.GET_TASKS"/>
-    
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name">
+        android:label="@string/app_name" >
+        <uses-library android:name="com.google.android.maps" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -26,28 +31,71 @@
             <!--  -->
         </activity>
         <activity
-            android:name=".ZweiteSeite"
-            android:label="@string/zweite_seite_titel" >
+            android:name=".Veranstaltungskalender"
+            android:label="@string/veranstaltungskalender_titel">
+        </activity>
+        <activity android:name=".SFMapActivity" >
+        </activity>
+        <activity
+            android:name=".WetterActivity"
+            android:label="@string/wetter_titel"
+            android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
             android:name=".NotificationTouchActivity"
-            android:theme="@android:style/Theme.NoDisplay"/>
+            android:theme="@android:style/Theme.NoDisplay" />
         <activity
             android:name=".ListenTesten"
             android:theme="@android:style/Theme.Dialog" >
-        </activity>        
+        </activity>
+        <activity
+            android:name=".VeranstaltungTabActivity">
+        </activity>      
+        <activity
+            android:name=".VeranstaltungskalenderMittwoch">
+        </activity>
+        <activity
+            android:name=".VeranstaltungskalenderDonnerstag">
+        </activity>           
+        <activity
+            android:name=".VeranstaltungskalenderFreitag">
+        </activity>                   
+        <activity
+            android:name=".VeranstaltungskalenderSamstag">
+        </activity>                   
+        <activity
+            android:name=".VeranstaltungskalenderSonntag">
+        </activity>                   
         <activity
             android:name=".DritteSeite"
             android:label="@string/app_name" >
-        </activity>        
+        </activity>
         <!-- Broadcast Receiver that will process AppWidget updates -->
+        <receiver android:enabled="true"  android:name=".services.BootCompleteReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/> 
+                <!-- <action android:name="android.content.Intent.ACTION_SCREEN_ON"/>  -->
+            </intent-filter>
+        </receiver>
+        <!-- 
+        <receiver android:name=".services.ScreenOnReceiver" >
+            <intent-filter>
+                <action android:name="android.content.Intent.ACTION_SCREEN_ON"/>
+            </intent-filter>
+        </receiver>
+         -->
+        <receiver android:name=".services.ZeitgeberReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_TICK" />
+            </intent-filter>
+        </receiver>
         <receiver
             android:name=".widget.SchuetzenFestWidgetProvider"
             android:icon="@drawable/ic_launcher"
             android:label="@string/widget_text" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="android.content.Intent.ACTION_SCREEN_ON"/>
+                <action android:name="android.content.Intent.ACTION_SCREEN_ON" />
             </intent-filter>
 
             <meta-data
@@ -56,6 +104,7 @@
         </receiver>
 
         <service android:name=".widget.UpdateService" />
+        <service android:name=".services.NotificationService" />
     </application>
 
 </manifest>

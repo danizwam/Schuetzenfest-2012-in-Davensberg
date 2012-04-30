@@ -3,8 +3,8 @@
 
     <string name="hello">Hello World, MainActivity!</string>
     <string name="app_name">Sch\u00FCtzenfest 2012 in Davensberg</string>
-    <string name="zweite_seite_titel">Veranstaltungen</string>
-    <string name="veranstaltungenTitel">Veranstaltungen</string>
+    <string name="veranstaltungskalender_titel">Veranstaltungen</string>
+    <string name="wetter_titel">Wettervorhersage für Davensberg</string>
     <string name="googlemapstxt">Google Maps</string>
     <string name="toasttext">Gugglaskdjflakjf alsfkdj asfd</string>
     <string name="mittwochMapsLoadingText">Einen Moment bitte… Google Maps wird gestartet!</string>
@@ -37,7 +37,7 @@
     </style>
 
     <string name="widget_text">Sch\u00FCtzenfest 2012 Countdown (2x1)</string>
-    <string name="widget_text_1">………loading………</string>
+    <string name="widget_text_1">…loading…</string>
     <string name="widget_text_2"></string>
     <string name="beenden">Beenden</string>
     <string name="mittwoch_titel">Mittwoch - 06.06.2012</string>
@@ -49,5 +49,21 @@
         -->
 
     </string>
+    <string name="Button_1">Mittwoch</string>
+    <string name="Button_2">Donnerstag</string>
+    <string name="Button_3">Freitag</string>
+    <string name="Button_4">Samstag</string>
+    <string name="Button_5">Sonntag</string>
+    <string name="Button_6">Wetter</string>
+    <string name="donnerstag_0">Donnerstag - 07.06.2012</string>
+    <string name="donnerstag_1"><u>Zelteinweihung für Jung &amp; Alt</u></string>
+    <string name="donnerstag_2">ab 14:30 Uhr gemütliches Beisammensein </string>
+    <string name="donnerstag_3">– Klönen bei Kaffee &amp; Kuchen –</string>
+    <string name="donnerstag_4"><u>Unser Angebot im Zelt:</u></string>
+    <string name="donnerstag_5">Ein Stück selbstgemachter Kuchen &amp; Pott Kaffee für <u>nur</u> 4,00  &#8364;</string>
+    <string name="donnerstag_6">*   *   *   *</string>
+    <string name="donnerstag_7"><u>Für die Kinder steht eine Hüpfburg bereit</u></string>
+    <string name="donnerstag_8">*   *   *   *</string>
+    <string name="donnerstag_9">Anschließend gehen wir zum gemütlichen Dämmerschoppen über!</string>
 
 </resources>

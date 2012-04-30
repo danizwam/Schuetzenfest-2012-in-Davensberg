@@ -4,7 +4,6 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
-import de.dazw.schuetzenfest.ShowVeranstaltungen;
 
 public class SchuetzenFestWidgetProvider extends AppWidgetProvider {
 
@@ -25,7 +24,7 @@ public class SchuetzenFestWidgetProvider extends AppWidgetProvider {
 		onUpdate(context, appWidgetManager, appWidgetIds);
 		
 		
-		ShowVeranstaltungen.getInstance(context).start();
+		//ShowVeranstaltungen.getInstance(context).start();
 		
 		
 //		long timeInMillis = GregorianCalendar.getInstance().getTimeInMillis();

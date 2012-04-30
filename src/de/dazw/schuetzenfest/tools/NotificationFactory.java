@@ -8,8 +8,11 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import de.dazw.schuetzenfest.NotificationTouchActivity;
+import android.os.Vibrator;
+import de.dazw.schuetzenfest.SFMapActivity;
 import de.dazw.schuetzenfest.beans.Veranstaltung;
+import de.dazw.schuetzenfest.sonst.Constants;
+import de.dazw.schuetzenfest.standorte.Standort;
 
 public class NotificationFactory {
 
@@ -30,17 +33,30 @@ public class NotificationFactory {
 	public static void showNotification(Context paramContext, int iconID, String titelString, String beschreibungString, String paramString3, Long startZeit, int id) {
 		
 		NotificationManager localNotificationManager = (NotificationManager) paramContext.getSystemService(Service.NOTIFICATION_SERVICE);
-		Intent i = new Intent(paramContext, NotificationTouchActivity.class);
+		//Intent i = new Intent(paramContext, NotificationTouchActivity.class);
+		Standort standort = Constants.myStandorte.get(beschreibungString);
+
+		Intent i = new Intent(paramContext, SFMapActivity.class);
 		i.putExtra("ID", new Integer(id));
+    	i.putExtra(Constants.LATITUDE, standort.getLatitude());
+    	i.putExtra(Constants.LONGITUDE, standort.getLongitude());
 		i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		
 		//PendingIntent localPendingIntent = PendingIntent.getActivity(paramContext, 0, new Intent(paramContext, NotificationTouchActivity.class), 0);
 		PendingIntent localPendingIntent = PendingIntent.getActivity(paramContext, id, i, PendingIntent.FLAG_UPDATE_CURRENT);
 		
 		//Notification localNotification = new Notification(iconID, titelString, System.currentTimeMillis());
 		Notification localNotification = new Notification(iconID, paramString3 , startZeit);
-		localNotification.flags = 2;
+		localNotification.flags = Notification.FLAG_AUTO_CANCEL;
+		//localNotification.setLatestEventInfo(paramContext, titelString, beschreibungString , localPendingIntent);
 		localNotification.setLatestEventInfo(paramContext, titelString, beschreibungString , localPendingIntent);
 		localNotificationManager.notify(id, localNotification);
+
+		
+		Vibrator v = (Vibrator) paramContext.getSystemService(Context.VIBRATOR_SERVICE);
+		// Vibrate for 300 milliseconds
+		v.vibrate(300);
+		
 	}
 	
 	

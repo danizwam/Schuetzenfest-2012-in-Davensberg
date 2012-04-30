@@ -24,9 +24,9 @@ public class ParentActivity extends Activity {
 		case R.id.menu_beenden:
 			this.finish();
 			break;
-		case R.id.menu_veranstaltungen:
-			this.finish();
-			break;
+//		case R.id.menu_veranstaltungen:
+//			this.finish();
+//			break;
 		default:
 			break;
 
