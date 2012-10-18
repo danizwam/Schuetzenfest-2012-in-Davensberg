@@ -54,8 +54,8 @@ public class NotificationFactory {
 
 		
 		Vibrator v = (Vibrator) paramContext.getSystemService(Context.VIBRATOR_SERVICE);
-		// Vibrate for 300 milliseconds
-		v.vibrate(300);
+		// Vibrate for 500 milliseconds
+		v.vibrate(500);
 		
 	}
 	

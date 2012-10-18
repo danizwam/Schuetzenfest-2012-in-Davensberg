@@ -36,6 +36,11 @@ public class VeranstaltungskalenderDonnerstag extends ParentActivity {
 //    	startActivity(intent);
     }
     
-
+    @Override
+    public void onBackPressed() {
+    	// TODO Auto-generated method stub
+    	super.onBackPressed();
+    	this.finish();
+    }
     
 }

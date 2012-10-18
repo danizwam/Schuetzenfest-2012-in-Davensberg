@@ -11,6 +11,8 @@ import de.dazw.schuetzenfest.sonst.Constants;
 
 public class ZeitgeberReceiver extends BroadcastReceiver {
 
+	
+	
 	public void onReceive(Context paramContext, Intent paramIntent) {
 		// ShowVeranstaltungen.getInstance(paramContext).showNextVeranstaltungen(2);
 

@@ -6,6 +6,6 @@ import de.dazw.schuetzenfest.sonst.Constants;
 public class Kirche extends Standort {
 
 	public Kirche() {
-		super(R.drawable.logo_clear_klein,Constants.KIRCHE,  "St. Anna Kirche", "", 51.818947, 7.591392);
+		super(R.drawable.kirche, Constants.KIRCHE,  "St. Anna Kirche", "Burgstraﬂe 59", 51.818947, 7.591392);
 	}
 }

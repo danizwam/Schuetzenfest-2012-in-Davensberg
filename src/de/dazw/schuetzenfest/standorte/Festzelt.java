@@ -6,6 +6,6 @@ import de.dazw.schuetzenfest.sonst.Constants;
 public class Festzelt extends Standort {
 
 	public Festzelt() {
-		super(R.drawable.logo_clear_klein,Constants.FESTZELT,  "Festzelt", "", 51.820003, 7.596059);
+		super(R.drawable.logo_clear_klein,Constants.FESTZELT,  "Festzelt", "Mühlendamm 27", 51.820003, 7.596059);
 	}
 }

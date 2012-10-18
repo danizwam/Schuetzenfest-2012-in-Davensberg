@@ -65,5 +65,56 @@
     <string name="donnerstag_7"><u>Für die Kinder steht eine Hüpfburg bereit</u></string>
     <string name="donnerstag_8">*   *   *   *</string>
     <string name="donnerstag_9">Anschließend gehen wir zum gemütlichen Dämmerschoppen über!</string>
-
+    
+    <string name="freitag_1"><ol><li>  Antreten am Burgturm\n</li><li>  Abholen der Majestät\n</li><li>  Fahnenschlag am Dorfanger \n</li><li>  Abmarsch zur Vogelstange\n</li><li>  Parole\n</li><li>  Ernennung der neuen Wache</li></ol></string>
+    <string name="freitag_2">Für die Kinder dreht der \u0022Pängelanton\u0022 wieder seine Runden</string>
+    <string name="freitag_3"><ol><li>  Vogelschießen am Telgenpatt (##Blasorchester Billerbeck##)</li></ol></string>
+    <string name="freitag_4"><ol><li>  Abmarsch zum Festzelt mit anschließender \u0022Inthronisation\u0022\n</li><li>  gemütlicher Bierabend <u>mit Musik und Tanz im Festzelt</u> (##Musik Factory##)</li></ol></string>
+    
+    <string name="samstag_1"><ol><li>  Antreten am Burgturm\n</li><li>  Abholen der Majestät</li></ol></string>
+    <string name="samstag_2"><ol><li>  Gottesdienst\n</li><li>  anschließend Kranzniederlegung\n</li><li>  Antreten auf dem <u>Wiedau</u>\n</li><li>  Umzug zum Festzelt</li></ol></string>
+    <string name="samstag_3"><ol><li>  Fahnenschlag am Burgturm und danach Platzkonzert am Festzelt (##Blasorchester Billerbeck \u0026 Spielmannszug Ascheberg##)</li></ol></string>
+    <string name="samstag_4"><ol><li>  Großer Zapfenstreich im \u0022Wäldchen\u0022 bei Haverkamp durch (##Blasorchester Billerbeck und Spielmannszug Ascheberg##)</li></ol>\n\n(während des Zapfenstreiches erfolgt weder Thekenbetrieb noch Bewirtung: wir bitten dafür um Verständnis)</string>
+    <string name="samstag_5"><ol><li>  Einmarsch des neuen Königspaares mit Hofstaat, Vorstand und Offizieren zum Festball</li></ol>\n\n anschließend Großer Festabend mit ##GIGOLOS Livemusic##\n\n<b>Um festliche Abendgarderobe wird gebeten</b></string>
+    <string name="samstag_6"><u>Public Viewing</u>\n\n
+                             <ol><li>  Übertragung des EM-Spiels Deutschland - Portugal auf Großbildleinwand im Zelt</li></ol></string>
+    <string name="samstag_7"><ol><li>  Fortsetzung des Festabends</li></ol></string>
+    
+    <string name="sonntag_1"><ol><li>  Einmarsch des Königspaares mit Hofstaat, Vorstand und Offizieren in das Festzelt\n</li><li>  Ehrungen</li></ol>\n\n<b>musikalischer Frühschoppen mit Schunkel- und Blasmusik mit den ##Turmbläsern Davensberg##</b>\n\n <b>Für einen geselligen Tisch für unsere Senioren ist gesorgt</b></string>
+    <string name="sonntag_2"><ol><li>  lockerer Ausklang des Schützenfestes 2012 mit DJ-Musik</li></ol></string>
+    
+    <string name="davertliedTitel">Davertlied</string>
+    <string name="davertliedStrophe_1">Dort, wo die Burg am gr\u00FCnen Emmerstrande \n 
+                                       vom hohen Berg gar stolz hernieder schaut, \n
+                                       wo sie wie es bekannt im ganzen Lande, \n
+                                       ein alt Geschlecht in grauer Zeit erbaut: \n
+                                       :Dort m\u00F6cht\u0027 ich sein, :und von den steilen H\u00F6hn \n
+                                       wohl in die weite Davert sehn.</string>
+    <string name="davertliedStrophe_2">Wo Eichenw\u00E4lder stolz in L\u00FCfte ragen, \n
+                                       in Wipfeln hoch sich wiegt des Habichts Horst, \n
+                                       wo in den Heiden sitzen dicke Hasen, \n
+                                       und Rehe wechseln scheu von Forst zu Forst: \n
+                                       :Dort m\u00F6cht\u0027 ich sein, :wenn laut die B\u00FCchse knallt, \n
+                                       und\u0027s Jagdhorn durch die W\u00E4lder schallt.</string>
+                                       
+    <string name="davertliedStrophe_3">Wo F\u00FCchse schlau vom Hof die Hennen stehlen, \n
+                                       der Grimbart einsam durch die W\u00E4lder schleicht, \n
+                                       wo J\u00E4ger oft die Schnepf im Fluge fehlen, \n
+                                       wenn sie des Abends durch die D\u00E4mmerung streicht: \n
+                                       :Dort m\u00F6cht\u0027 ich gern, :wenn linde L\u00FCfte wehn, \n
+                                       die Schnepf im Zickzackzuge sehn.</string>
+                                           
+    <string name="davertliedStrophe_4">Wo tief versteckt der Wild\u0027rer n\u00E4chtlich lauert, \n
+                                       des Schenk\u0027walds Meute durch die L\u00FCfte fährt, \n
+                                       und wo der Spuk am Kieselsteine kauert, \n
+                                       das graue M\u00E4nnchen oft den Wand\u0027rer st\u00F6rt: \n
+                                       :Dort triffst Du an :den k\u00FChnen J\u00E4gersmann, \n
+                                       ihn heimelts stets die Davert an.</string>
+                                                                          
+    <string name="davertliedStrophe_5">Ein jedes Land hat seine eig\u0027nen Weisen; \n
+                                       ein jedes Land gibt Stoff zu einem Lied; \n
+                                       drum mu\u00DF ich mir die alte Davert preisen, \n
+                                       wo\u0027s Heidebl\u00FCmchen, wo der Ginster bl\u00FCht. \n
+                                       :Und schlaf ich ein, :dann m\u00F6cht\u0027 im Eichenhain \n
+                                       der Davert ich begraben sein.</string>
 </resources>

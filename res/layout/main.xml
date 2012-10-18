@@ -32,7 +32,7 @@
         style="@style/root_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:background="@android:color/white" >
 
         <LinearLayout
@@ -48,19 +48,19 @@
 
                 <ImageView
                     android:id="@+id/imageView2"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:src="@drawable/kalender" />
 
                 <Button
                     android:id="@+id/imageButton32"
                     android:layout_width="fill_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:onClick="veranstaltungskalenderClicked"
                     android:text="Veranstaltungskalender" />
             </LinearLayout>
@@ -72,24 +72,49 @@
 
                 <ImageView
                     android:id="@+id/ImageView02"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:src="@drawable/ic_launcher_maps" />
 
                 <Button
                     android:id="@+id/ImageButton03"
                     android:layout_width="fill_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:text="Übersichtskarte"
                     android:onClick="mapsClicked"
                     android:src="@drawable/background" />
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/davertliedLinearLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/ImageViewDavertlied"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/noten_launcher" />
+
+                <Button
+                    android:id="@+id/ImageButtonDavertlied"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Davertlied"
+                    android:onClick="davertliedClicked"
+                    android:src="@drawable/background" />
+            </LinearLayout>
+            
             <LinearLayout
                 android:id="@+id/LinearLayout01"
                 android:layout_width="fill_parent"
@@ -97,19 +122,19 @@
 
                 <ImageView
                     android:id="@+id/ImageView01"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:src="@drawable/sunny" />
 
                 <Button
                     android:id="@+id/Button01"
                     android:layout_width="fill_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:onClick="wetterClicked"
                     android:text="Wettervorhersage" />
             </LinearLayout>

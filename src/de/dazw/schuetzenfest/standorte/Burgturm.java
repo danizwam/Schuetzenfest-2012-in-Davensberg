@@ -6,6 +6,6 @@ import de.dazw.schuetzenfest.sonst.Constants;
 public class Burgturm extends Standort {
 
 	public Burgturm() {
-		super(R.drawable.burgturm_clean, Constants.BURGTURM, "Burgturm", "Burgturm", 51.82073, 7.59207);
+		super(R.drawable.burgturm_clean, Constants.BURGTURM, "Burgturm", "Mühlendamm 5", 51.820268, 7.592288);
 	}
 }

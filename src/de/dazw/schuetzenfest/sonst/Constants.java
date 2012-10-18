@@ -14,6 +14,7 @@ public class Constants {
 
 	public static final String PREFS_NAME = "SchuetzenFestPrefsFile";
 	public static final String NOTIFICATION_PREF = "NOTIFICATION";
+	public static final String SHOWN_EVENTS = "SHOWN_EVENTS";
 	public static final String LATITUDE = "LATITUDE";
 	public static final String LONGITUDE = "LONGITUDE";
 	public static final String GESTURE_RIGHT = "RIGHT";

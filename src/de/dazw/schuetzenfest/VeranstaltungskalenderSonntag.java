@@ -2,10 +2,13 @@ package de.dazw.schuetzenfest;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 import de.dazw.schuetzenfest.sonst.Constants;
 import de.dazw.schuetzenfest.standorte.Standort;
+import de.dazw.schuetzenfest.tools.InlineFormatter;
 
 public class VeranstaltungskalenderSonntag extends ParentActivity {
 	
@@ -16,6 +19,9 @@ public class VeranstaltungskalenderSonntag extends ParentActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.veranstaltungskalendersonntag);
+        
+        TextView sonntag_1 = (TextView) findViewById(R.id.sonntag_1);
+        sonntag_1.setText(InlineFormatter.setSpanBetweenTokens(sonntag_1.getText(), "##", new ForegroundColorSpan(0xFFFF0000)));
         
     }
     
@@ -36,6 +42,16 @@ public class VeranstaltungskalenderSonntag extends ParentActivity {
 //    	startActivity(intent);
     }
     
-
+    @Override
+    public void onBackPressed() {
+    	// TODO Auto-generated method stub
+    	super.onBackPressed();
+    	this.finish();
+    }
+    
+    @Override
+    protected void onDestroy() {
+    	super.onDestroy();
+    }
     
 }

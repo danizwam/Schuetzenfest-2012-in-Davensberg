@@ -2,9 +2,12 @@ package de.dazw.schuetzenfest;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 import de.dazw.schuetzenfest.sonst.Constants;
+import de.dazw.schuetzenfest.tools.InlineFormatter;
 
 public class VeranstaltungskalenderSamstag extends ParentActivity {
 	
@@ -16,6 +19,14 @@ public class VeranstaltungskalenderSamstag extends ParentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.veranstaltungskalendersamstag);
         
+        TextView samstag_3 = (TextView) findViewById(R.id.samstag_3);
+        samstag_3.setText(InlineFormatter.setSpanBetweenTokens(samstag_3.getText(), "##", new ForegroundColorSpan(0xFFFF0000)));
+
+        TextView samstag_4 = (TextView) findViewById(R.id.samstag_4);
+        samstag_4.setText(InlineFormatter.setSpanBetweenTokens(samstag_4.getText(), "##", new ForegroundColorSpan(0xFFFF0000)));
+        
+        TextView samstag_5 = (TextView) findViewById(R.id.samstag_5);
+        samstag_5.setText(InlineFormatter.setSpanBetweenTokens(samstag_5.getText(), "##", new ForegroundColorSpan(0xFFFF0000)));
     }
     
     public void mapButtonClicked(View v){
@@ -33,6 +44,16 @@ public class VeranstaltungskalenderSamstag extends ParentActivity {
 //    	startActivity(intent);
     }
     
-
+    @Override
+    public void onBackPressed() {
+    	// TODO Auto-generated method stub
+    	super.onBackPressed();
+    	this.finish();
+    }
+    
+    @Override
+    protected void onDestroy() {
+    	super.onDestroy();
+    }
     
 }

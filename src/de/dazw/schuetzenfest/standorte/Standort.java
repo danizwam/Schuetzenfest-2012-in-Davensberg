@@ -1,5 +1,8 @@
 package de.dazw.schuetzenfest.standorte;
 
+import com.google.android.maps.GeoPoint;
+
+
 public abstract class Standort {
 
 	private int drawableMarker = -1;
@@ -19,6 +22,10 @@ public abstract class Standort {
 		this.longitude = longitude;
 	}
 
+	public GeoPoint getGeoPoint(){
+		return new GeoPoint ((int)(getLatitude() * 1E6), (int)(getLongitude() * 1E6));
+	}
+	
 	public String getOrt() {
 		return ort;
 	}
@@ -67,4 +74,9 @@ public abstract class Standort {
 		this.longitude = longitude;
 	}
 
+	@Override
+	public String toString() {
+		return ort;
+	}
+	
 }

@@ -3,6 +3,8 @@ package de.dazw.schuetzenfest.beans;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+import de.dazw.schuetzenfest.standorte.Standort;
+
 public class Veranstaltung {
 
 	private String name = null;
@@ -10,6 +12,7 @@ public class Veranstaltung {
 	private Calendar anfang = null;
 	private Calendar ende = null;
 	private Integer id = null;
+	private Standort standort = null;
 	
 	public Veranstaltung(String name, String ort, String anfang, String ende, Integer id){
 		this.name = name;
@@ -24,6 +27,19 @@ public class Veranstaltung {
 		this.id = id;
 	}
 
+	public Veranstaltung(String name, Standort ort, Calendar anfang, Calendar ende, Integer id){
+		this.name = name;
+		this.ort = ort.toString();
+		
+		this.anfang = anfang;
+		
+		this.ende = ende;
+		
+		this.id = id;
+		
+		this.standort = standort;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -44,4 +60,7 @@ public class Veranstaltung {
 		return id;
 	}
 	
+	public Standort getStandort(){
+		return standort;
+	}
 }

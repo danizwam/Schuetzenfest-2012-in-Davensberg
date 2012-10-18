@@ -14,20 +14,29 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.util.Log;
 import de.dazw.schuetzenfest.beans.Veranstaltung;
 import de.dazw.schuetzenfest.sonst.Constants;
+import de.dazw.schuetzenfest.sonst.VeranstaltungFactory;
+import de.dazw.schuetzenfest.standorte.Burgturm;
+import de.dazw.schuetzenfest.standorte.Festzelt;
+import de.dazw.schuetzenfest.standorte.Haverkamp;
+import de.dazw.schuetzenfest.standorte.Kirche;
+import de.dazw.schuetzenfest.standorte.Vogelstange;
 import de.dazw.schuetzenfest.tools.HTTPDownloader;
 import de.dazw.schuetzenfest.tools.NotificationFactory;
 
 public class ShowVeranstaltungen {
 
 	private Context context = null;
-	private Long vorlaufZeit = 7200000L;
+	private Long vorlaufZeit = 3600000L;
 
 	private static ShowVeranstaltungen instance = null;
 	List<Veranstaltung> verList = new ArrayList<Veranstaltung>();
-	private Boolean startet = Boolean.FALSE;
+	private static Boolean startet = Boolean.FALSE;
+	private static Timer timer;
 
 	private Thread laufThread = new Thread(new Runnable() {
 		@Override
@@ -45,57 +54,84 @@ public class ShowVeranstaltungen {
 		}
 	});
 
+	public static void createEventMap(Context context){
+		context.getSharedPreferences(Constants.PREFS_NAME, 0);
+	}
+	
 	public boolean isRunning() {
 		return startet;
 	}
 
-	private void start() {
+	public void stop() {
+		timer = null;
+		startet = Boolean.FALSE;
+		instance = null;
+		Log.i("ShowVeranstaltungen", "Gestoppt!");
+	}
+
+	public void start() {
+		
+		Calendar cal = new GregorianCalendar(2012, 5, 6);
+		Calendar calzwei = new GregorianCalendar(2012, 5, 11);
+
+		long sfestStart = cal.getTimeInMillis();
+		long sfestEnde = calzwei.getTimeInMillis();
+		long now = System.currentTimeMillis();
+		
+		if(now < sfestStart || now > sfestEnde){
+			stop();
+			Log.i("ShowVeranstaltungen", "Nicht gestartet, falsches Datum!");
+			return;
+		}
+		
 		if (!startet) {
-			Timer timer = new Timer();
+			Log.i("ShowVeranstaltungen", "Gestartet!");
+			timer = new Timer();
 			timer.scheduleAtFixedRate(new TimerTask() {
 
 				@Override
 				public void run() {
-					if(context.getSharedPreferences(Constants.PREFS_NAME, 0).getBoolean(Constants.NOTIFICATION_PREF, true)){
-					//if(MainActivity.notification){
+					if (context.getSharedPreferences(Constants.PREFS_NAME, 0).getBoolean(
+							Constants.NOTIFICATION_PREF, true)) {
+						// if(MainActivity.notification){
 						showNextVeranstaltungen(2);
 					}
 				}
-			}, 1, 15000);
+			}, 1, 900000L);
 
 			// laufThread.start();
 			startet = Boolean.TRUE;
 		}
 	}
 
-	public void forceUpdate(){
+	public void forceUpdate() {
 		showNextVeranstaltungen(1);
 	}
-	
+
 	private ShowVeranstaltungen(Context context) {
 		this.context = context;
 
 		new Thread(new Runnable() {
-			
+
 			@Override
 			public void run() {
 				synchronized (verList) {
-					verList = ladeVeranstaltungenAusInternet();
+					// verList = ladeVeranstaltungenAusInternet();
 					if (verList.size() == 0) {
 						createBackup();
 					}
 				}
 			}
 		}).start();
-		
+
 	}
 
 	private boolean fehler = false;
-	
-//	private void showToastText(String text){
-//		Toast.makeText(context, text, 2000).show();
-//	}
-	
+
+	// private void showToastText(String text){
+	// Toast.makeText(context, text, 2000).show();
+	// }
+
 	public static ShowVeranstaltungen getInstance(Context context) {
 		if (instance == null) {
 			instance = new ShowVeranstaltungen(context);
@@ -105,39 +141,46 @@ public class ShowVeranstaltungen {
 
 	public void showNextVeranstaltungen(final int anzahl) {
 		new Thread(new Runnable() {
-			
+
 			@Override
 			public void run() {
 				long now = System.currentTimeMillis();
 				int zaehler = 0;
-				
-				while(verList.size() == 0){
+
+				while (verList.size() == 0) {
 					// Warten bis Backup geladen wurde
 				}
 				synchronized (verList) {
+					
 					for (Veranstaltung v : verList) {
-						// if ((now + vorlaufZeit) > v.getAnfang().getTimeInMillis() && now
-						// < v.getEnde().getTimeInMillis()) {
-						NotificationFactory.showNotification(context, R.drawable.ic_launcher, v);
-						zaehler++;
-						if (zaehler == anzahl) {
-							break;
+						if ((now + vorlaufZeit) > v.getAnfang().getTimeInMillis()
+								&& now < v.getAnfang().getTimeInMillis() + 1800000L) {
+							
+							String value = context.getSharedPreferences(Constants.PREFS_NAME, 0).getString(v.getAnfang().getTimeInMillis() + "", null);
+							if(value == null){
+								//NotificationFactory.showNotification(context, v.getStandort().get, v);
+								NotificationFactory.showNotification(context, R.drawable.ic_launcher, v);
+								SharedPreferences sharedPreferences = context.getSharedPreferences(Constants.PREFS_NAME, 0);
+								Editor edit = sharedPreferences.edit();
+								edit.putString(v.getAnfang().getTimeInMillis() + "", v.getAnfang().getTimeInMillis() + "");
+								edit.commit();
+								zaehler++;
+							}
+//							if (zaehler == anzahl) {
+//								break;
+//							}
 						}
-						// }
-						if (zaehler == anzahl) {
-							break;
-						}
+//						if (zaehler == anzahl) {
+//							break;
+//						}
 					}
 				}
-				
+
 			}
 		}).start();
 
 	}
 
-	
-
-	
 	private List<Veranstaltung> ladeVeranstaltungenAusInternet() {
 
 		List<Veranstaltung> verList = new ArrayList<Veranstaltung>();
@@ -190,43 +233,77 @@ public class ShowVeranstaltungen {
 			Log.e("LadeVeranstaltung", "NPE: " + e.getMessage());
 		}
 
-		//showToastText("Veranstaltungedaten erfolgreich geladen!");
-		
+		// showToastText("Veranstaltungedaten erfolgreich geladen!");
+
 		return verList;
 
 	}
 
 	private void createBackup() {
-		//showToastText("Veranstaltungen konnten nicht geladen werden. Es werden die zum Release der App bekannten Zeiten benutzt!");
-		
-		Calendar rockfestival = GregorianCalendar.getInstance();
-		rockfestival.set(2012, 5, 6, 21, 00);
+		// showToastText("Veranstaltungen konnten nicht geladen werden. Es werden die zum Release der App bekannten Zeiten benutzt!");
 
-		Calendar antreten = GregorianCalendar.getInstance();
-		antreten.set(2012, 5, 8, 15, 00);
+		VeranstaltungFactory f = VeranstaltungFactory.getInstance();
 
-		Calendar vogelschiessen = GregorianCalendar.getInstance();
-		vogelschiessen.set(2012, 5, 8, 17, 00);
+		verList.add(f.createVeranstaltung("Rockfestival", new Festzelt(), "06.06.2012:19:30", 400,
+				1));
 
-		Calendar sonstEins = GregorianCalendar.getInstance();
-		sonstEins.set(2012, 5, 9, 10, 00);
+		verList.add(f.createVeranstaltung("Gemütliches Beisammensein", new Festzelt(),
+				"07.06.2012:14:00", 400, 2));
 
-		Calendar sonstZwei = GregorianCalendar.getInstance();
-		sonstZwei.set(2012, 5, 10, 10, 00);
+		verList.add(f.createVeranstaltung("Antreten", new Burgturm(), "08.06.2012:15:30", 90, 3));
+		verList.add(f.createVeranstaltung("Vogelschießen", new Vogelstange(), "08.06.2012:17:00",
+				150, 4));
+		verList.add(f.createVeranstaltung("Abmarsch zum Festzelt", new Festzelt(),
+				"08.06.2012:19:30", 30, 5));
 
-		Calendar sonstDrei = GregorianCalendar.getInstance();
-		sonstDrei.set(2012, 5, 11, 10, 00);
+		verList.add(f.createVeranstaltung("Antreten am Burgturm", new Burgturm(),
+				"09.06.2012:15:00", 60, 6));
+		verList.add(f.createVeranstaltung("Gottesdienst", new Kirche(), "09.06.2012:16:00", 90, 7));
+		verList.add(f.createVeranstaltung("Fahnenschlag", new Burgturm(), "09.06.2012:17:30", 105,
+				8));
+		verList.add(f.createVeranstaltung("Großer Zapfenstreich", new Haverkamp(),
+				"09.06.2012:19:15", 45, 9));
+		verList.add(f.createVeranstaltung("Einmarsch ins Zelt", new Festzelt(), "09.06.2012:20:00",
+				45, 10));
+		verList.add(f.createVeranstaltung("Public Viewing", new Festzelt(), "09.06.2012:20:45",
+				105, 11));
 
-		String[] namen = new String[] { "Rockfestival", "Antreten", "Vogelschiessen", "Sonstwas" };
-		String[] orte = new String[] { "Festzelt", "Burgturm", "Vogelstange", "Sonstwo" };
-		Calendar[] zeiten = new Calendar[] { rockfestival, antreten, vogelschiessen, sonstEins };
+		verList.add(f.createVeranstaltung("Einmarsch", new Festzelt(), "10.06.2012:11:30", 210, 12));
+		verList.add(f.createVeranstaltung("lockerer Ausklang", new Festzelt(), "10.06.2012:15:00",
+				105, 13));
 
-		for (int i = 0; i < namen.length; i++) {
-			Veranstaltung v = new Veranstaltung(namen[i], orte[i],
-					zeiten[i].getTimeInMillis() + "",
-					(zeiten[i].getTimeInMillis() + 1800000L) + "", i + 1);
-			verList.add(v);
-		}
+		//
+		// Calendar rockfestival = GregorianCalendar.getInstance();
+		// rockfestival.set(2012, 5, 6, 21, 00);
+		//
+		// Calendar antreten = GregorianCalendar.getInstance();
+		// antreten.set(2012, 5, 8, 15, 00);
+		//
+		// Calendar vogelschiessen = GregorianCalendar.getInstance();
+		// vogelschiessen.set(2012, 5, 8, 17, 00);
+		//
+		// Calendar sonstEins = GregorianCalendar.getInstance();
+		// sonstEins.set(2012, 5, 9, 10, 00);
+		//
+		// Calendar sonstZwei = GregorianCalendar.getInstance();
+		// sonstZwei.set(2012, 5, 10, 10, 00);
+		//
+		// Calendar sonstDrei = GregorianCalendar.getInstance();
+		// sonstDrei.set(2012, 5, 11, 10, 00);
+		//
+		// String[] namen = new String[] { "Rockfestival", "Antreten",
+		// "Vogelschiessen", "Sonstwas" };
+		// String[] orte = new String[] { "Festzelt", "Burgturm", "Vogelstange",
+		// "Sonstwo" };
+		// Calendar[] zeiten = new Calendar[] { rockfestival, antreten,
+		// vogelschiessen, sonstEins };
+		//
+		// for (int i = 0; i < namen.length; i++) {
+		// Veranstaltung v = new Veranstaltung(namen[i], orte[i],
+		// zeiten[i].getTimeInMillis() + "",
+		// (zeiten[i].getTimeInMillis() + 1800000L) + "", i + 1);
+		// verList.add(v);
+		// }
 
 	}
 

@@ -45,6 +45,11 @@ public class Veranstaltungskalender extends ParentActivity {
         
     }
     
+    @Override
+    protected void onDestroy() {
+    	super.onDestroy();
+    }
+    
     public void mittwochButtonMaps(View v){
     	Toast.makeText(Veranstaltungskalender.this, R.string.mittwochMapsLoadingText, 2000).show();
 
@@ -58,6 +63,12 @@ public class Veranstaltungskalender extends ParentActivity {
 //    	Toast.makeText(Veranstaltungskalender.this, t.getText(), 2000).show();
 //    	Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(t.getText() + ""));
 //    	startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+    	super.onBackPressed();
+    	this.finish();
     }
     
 }

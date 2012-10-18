@@ -18,14 +18,8 @@
                 style="@style/default_text.with_paddings"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:text="@string/donnerstag_0"
-                android:textStyle="bold" />
-
-            <TextView
-                style="@style/default_text.with_paddings"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
                 android:gravity="center"
+                android:layout_marginTop="20dp"
                 android:text="@string/donnerstag_1"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -74,9 +68,11 @@
                 style="@style/default_text.with_paddings"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
+                android:layout_marginLeft="5dp"
                 android:gravity="center"
                 android:text="@string/donnerstag_7"
-                android:textSize="18dp" android:textStyle="bold"/>
+                android:textSize="18dp" 
+                android:textStyle="bold"/>
 
             <TextView
                 style="@style/default_text.with_paddings"

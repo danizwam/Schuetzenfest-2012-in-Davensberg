@@ -4,39 +4,44 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout1"
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginRight="30dp"
-            android:onClick="myLocation"
-            android:text="Wo bin ich?" />
+        android:layout_height="wrap_content">
 
         <Button
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="32dp"
+            android:layout_marginLeft="5dp"
             android:onClick="toggleSat"
             android:text="Satellit an/aus" />
 
-    </RelativeLayout>
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:onClick="festzeltButtonClicked"
+            android:text="Festzelt" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:onClick="myLocation"
+            android:text="Wo bin ich?" />
+    </LinearLayout>
 
     <com.google.android.maps.MapView
         android:id="@+id/mapview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:apiKey="0JPwZsYtkYmtoWsDq_Ffe1a_DIbpd6WbrRWgj5w"
+        android:apiKey="0JPwZsYtkYmuncybCwF3nYplaZAX__KAc41LRZQ" 
         android:clickable="true" >
     </com.google.android.maps.MapView>
 
-</LinearLayout>
+</LinearLayout> 
+<!-- android:apiKey="0JPwZsYtkYmuncybCwF3nYplaZAX__KAc41LRZQ" Prod Key -->
+<!-- android:apiKey="0JPwZsYtkYmtoWsDq_Ffe1a_DIbpd6WbrRWgj5w"  DEMO KEY -->

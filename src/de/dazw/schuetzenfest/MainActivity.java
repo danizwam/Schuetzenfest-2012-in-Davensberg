@@ -58,7 +58,11 @@ public class MainActivity extends ParentActivity {
         
         notification = notifi;
         
-        //ShowVeranstaltungen.getInstance(getApplicationContext()).start();
+        if(notification){
+        	ShowVeranstaltungen.getInstance(getApplicationContext()).start();
+        } else{
+        	ShowVeranstaltungen.getInstance(getApplicationContext()).stop();
+        }
         
         
         //Veranstaltung v = ShowVeranstaltungen.getInstance(getApplicationContext()).verList.get(0);
@@ -95,22 +99,29 @@ public class MainActivity extends ParentActivity {
     
     @Override
     protected void onNewIntent(Intent intent) {
-    	// TODO Auto-generated method stub
     	super.onNewIntent(intent);
     }
     
     @Override
     public void onBackPressed() {
-    	// TODO Auto-generated method stub
     	super.onBackPressed();
     	this.finish();
+    }
+    
+    @Override
+    protected void onDestroy() {
+    	super.onDestroy();
     }
     
     @Override
     protected void onResume() {
     	super.onResume();
     	
-    	//ShowVeranstaltungen.getInstance(getApplicationContext()).start();
+        if(notification){
+        	ShowVeranstaltungen.getInstance(getApplicationContext()).start();
+        } else{
+        	ShowVeranstaltungen.getInstance(getApplicationContext()).stop();
+        }
     }
     
     public void notifChange(View v){
@@ -122,9 +133,11 @@ public class MainActivity extends ParentActivity {
          notification = c.isChecked();
          
          if(notification){
-        	 Toast.makeText(getApplicationContext(), "Sie werden jetzt 2 Stunden vor jedem Event benachrichtigt!", 2500).show();
+        	 Toast.makeText(getApplicationContext(), "Sie werden jetzt 1 Stunde vor jedem Event benachrichtigt!", 2500).show();
+        	 ShowVeranstaltungen.getInstance(getApplicationContext()).start();
         	 ShowVeranstaltungen.getInstance(getApplicationContext()).forceUpdate();
          }else{
+        	 ShowVeranstaltungen.getInstance(getApplicationContext()).stop();
         	 Toast.makeText(getApplicationContext(), "Benachrichtigung deaktiviert!", 2500).show();
          }
          
@@ -178,6 +191,11 @@ public class MainActivity extends ParentActivity {
     
     public void wetterClicked(View v){
     	Intent i = new Intent(this, WetterActivity.class);
+    	startActivity(i);
+    }
+    
+    public void davertliedClicked(View v){
+    	Intent i = new Intent(this, DavertliedActivity.class);
     	startActivity(i);
     }
     
